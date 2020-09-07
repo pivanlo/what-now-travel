@@ -1,0 +1,8 @@
+<nb-card size="medium">
+  <nb-card-header><h1>Items</h1></nb-card-header>
+  <nb-list>
+    <nb-list-item *ngFor="let item of items$ | async">
+      <a routerLink="/items/{{ item.sku }}">{{ item.name }}</a>
+    </nb-list-item>
+  </nb-list>
+</nb-card>

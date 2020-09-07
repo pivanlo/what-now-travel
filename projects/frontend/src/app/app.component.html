@@ -1,0 +1,44 @@
+<nb-layout>
+  <nb-layout-header fixed>
+    <div id="header-content">
+      <div id="brand">What Now Travel</div>
+      <div>
+        <a id="home-button" routerLink="/" nbButton status="primary">Home</a>
+
+        <button
+          nbButton
+          status="primary"
+          *ngIf="!(isAuthenticated$ | async)"
+          (click)="loginWithGoogle()"
+        >
+          Sign in with Google
+        </button>
+
+        <a
+          id="cart-button"
+          routerLink="/cart"
+          nbButton
+          status="primary"
+          *ngIf="isAuthenticated$ | async"
+        >
+          <nb-icon icon="shopping-cart-outline"></nb-icon>Cart
+        </a>
+
+        <button
+          nbButton
+          status="basic"
+          *ngIf="isAuthenticated$ | async"
+          (click)="logout()"
+        >
+          Log out
+        </button>
+      </div>
+    </div>
+  </nb-layout-header>
+
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+
+  <nb-layout-footer fixed></nb-layout-footer>
+</nb-layout>

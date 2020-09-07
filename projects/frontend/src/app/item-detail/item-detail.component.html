@@ -1,0 +1,45 @@
+<p>
+  <a routerLink="/" nbButton status="primary">
+    <nb-icon icon="arrow-back"></nb-icon> Go to Home
+  </a>
+</p>
+
+<nb-card *ngIf="item$ | async as item">
+  <nb-card-header
+    ><h2>{{ item.name }}</h2>
+    <div>
+      <button
+        nbButton
+        status="primary"
+        *ngIf="(isAuthenticated$ | async) && !isAddedToCart"
+        (click)="addToCart()"
+      >
+        <nb-icon icon="shopping-cart-outline"></nb-icon> Add to cart
+      </button>
+      <button
+        nbButton
+        disabled
+        status="primary"
+        *ngIf="(isAuthenticated$ | async) && isAddedToCart"
+      >
+        <nb-icon icon="shopping-cart-outline"></nb-icon> Added to cart
+      </button>
+    </div></nb-card-header
+  >
+  <nb-list>
+    <nb-list-item>
+      <p><b>Description</b></p>
+      <div>
+        {{ item.description }}
+      </div>
+    </nb-list-item>
+    <nb-list-item>
+      <p><b>Price</b></p>
+      <div>{{ item.price }}</div>
+    </nb-list-item>
+    <nb-list-item>
+      <p><b>SKU</b></p>
+      <div>{{ item.sku }}</div>
+    </nb-list-item>
+  </nb-list>
+</nb-card>

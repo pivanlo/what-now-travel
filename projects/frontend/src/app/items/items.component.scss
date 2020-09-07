@@ -1,0 +1,16 @@
+nb-list-item {
+  padding: 0;
+
+  a {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 16px 24px;
+    width: 100%;
+    color: #222b45;
+    text-decoration: none;
+
+    &:hover {
+      color: #598bff;
+    }
+  }
+}

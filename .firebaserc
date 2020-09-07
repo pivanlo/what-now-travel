@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "what-now-travel"
+  },
+  "targets": {
+    "what-now-travel": {
+      "hosting": {
+        "frontend": [
+          "what-now-travel"
+        ]
+      }
+    }
+  }
+}
